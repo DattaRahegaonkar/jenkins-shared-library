@@ -1,3 +1,3 @@
-def call(String fsname){
-  sh "trivy fs . --format table -o ${fsname}"
+def call(String fsName){
+  sh "trivy fs . --format table -o ${fsName}"
 }
