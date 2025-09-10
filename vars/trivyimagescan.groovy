@@ -1,6 +1,3 @@
-def call(String imageName, String reportName, String tagName) {
-  def reportNameNew = "${reportName}-${tagName}.html"
-  sh "trivy image ${imageName}:${tagName} --format table -o ${reportNameNew} --exit-code 0 --severity HIGH,CRITICAL || true"
-
-  archiveArtifacts artifacts: reportName, allowEmptyArchive: true
+def call(String imageName, String reportName) {
+  sh "trivy image ${imageName} --format table -o ${reportName} --exit-code 0 --severity HIGH,CRITICAL || true"
 }
